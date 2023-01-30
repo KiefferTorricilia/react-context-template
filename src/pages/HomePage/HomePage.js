@@ -1,9 +1,16 @@
 import Card from "../../components/Card/Card";
 import { Container } from "./HomePage.styled";
 import Header from "../../components/Header/Header";
+import { useContext } from "react";
+import { GlobalContext } from "../../contexts/GlobalContext";
 
 function HomePage(props) {
-  const { pokelist, addToPokedex, pokedex } = props;
+  // const { pokelist, addToPokedex, pokedex } = props;
+
+  const context = useContext(GlobalContext) //Preciso passar dentro do useContext o contexto ao qual estou me referindo.
+  console.log(context)//O context me passa o data, vai me passar as informações que eu coloquei dentro do value de globalState
+
+  const { pokelist, addToPokedex, pokedex } = context
 
   // não mostrar pokemons que estão na pokedex
   const filteredPokelist = () =>
